@@ -1,12 +1,8 @@
 package guru.springframework.sdjpaintro;
 
-import guru.springframework.sdjpaintro.domain.AuthorUuid;
-import guru.springframework.sdjpaintro.domain.BookUuid;
 import guru.springframework.sdjpaintro.domain.composite.AuthorComposite;
 import guru.springframework.sdjpaintro.domain.composite.NameId;
 import guru.springframework.sdjpaintro.repositories.AuthorCompositeRepository;
-import guru.springframework.sdjpaintro.repositories.AuthorUuidRepository;
-import guru.springframework.sdjpaintro.repositories.BookUuidRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

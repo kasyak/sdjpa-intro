@@ -1,6 +1,5 @@
 package guru.springframework.sdjpaintro.domain.composite;
 
-import jakarta.persistence.Entity;
 import lombok.*;
 
 import java.io.Serializable;
