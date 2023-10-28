@@ -1,8 +1,10 @@
 package guru.springframework.sdjpaintro;
 
 import guru.springframework.sdjpaintro.domain.composite.AuthorComposite;
+import guru.springframework.sdjpaintro.domain.composite.AuthorEmbedded;
 import guru.springframework.sdjpaintro.domain.composite.NameId;
 import guru.springframework.sdjpaintro.repositories.AuthorCompositeRepository;
+import guru.springframework.sdjpaintro.repositories.AuthorEmbedRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -17,6 +19,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CompositeIntegrationTest {
     @Autowired
     AuthorCompositeRepository authorCompositeRepository;
+    @Autowired
+    AuthorEmbedRepository authorEmbedRepository;
 
     @Test
     void testUuidEntities() {
@@ -27,5 +31,11 @@ public class CompositeIntegrationTest {
         author.setLastName(nameId.getLastName());
         AuthorComposite savedAuthor = authorCompositeRepository.save(author);
         assertThat(authorCompositeRepository.findById(nameId)).hasValue(savedAuthor);
+
+        AuthorEmbedded authorEmb = new AuthorEmbedded();
+        authorEmb.setCountry("US");
+        authorEmb.setFullName(nameId);
+        AuthorEmbedded savedAuthorEmb = authorEmbedRepository.save(authorEmb);
+        assertThat(authorEmbedRepository.findById(nameId)).hasValue(savedAuthorEmb);
     }
 }
