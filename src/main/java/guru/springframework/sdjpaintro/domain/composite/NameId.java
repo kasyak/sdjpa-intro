@@ -1,9 +1,11 @@
 package guru.springframework.sdjpaintro.domain.composite;
 
+import jakarta.persistence.Embeddable;
 import lombok.*;
 
 import java.io.Serializable;
 
+@Embeddable
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
